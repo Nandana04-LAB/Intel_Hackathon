@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendly Robot Companion</title>
+</head>
+<body>
+    <h1>Friendly Robot Companion</h1>
+    <button onclick="captureEmotion()">Detect Emotion</button>
+    <p id="output"></p>
+
+    <script>
+        async function captureEmotion() {
+            const response = await fetch('/emotion', { method: 'POST' });
+            const data = await response.json();
+            document.getElementById('output').innerText = 
+                Detected Emotion: ${data.emotion}\nResponse: ${data.response};
+        }
+    </script>
+</body>
+</html>
